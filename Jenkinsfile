@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Maven Package') {
       steps {
-        sh './mvnw clean package'
+        sh 'mvn clean package'
       }
     }
 
@@ -29,7 +29,7 @@ pipeline {
 
       failure {
         emailext body: "Dette er en mail fra Jenkins pipeline\n Jenkins says:  Job Name: ${env.JOB_NAME}   \nBuild Number:  ${env.BUILD_NUMBER} mislyktes!", subject: 'Bygging av Jenkins-test feilet', to: 'terje@itfakultetet.no'
-       mattermostSend channel: '@itfakultetet, jenkins,town-square', endpoint: 'http://mattermost.itfakultetet.no:8065/hooks/1t53s7bk4tdouywsm1bfww99na', message: "### Bare hyggelig! \n- Jenkins sier:  \nJob:  ${env.JOB_NAME}   \nByggnummer:  ${env.BUILD_NUMBER} :x:", text: '### Ny versjon av Jenkins-test feilet  :x:'
+       mattermostSend channel: '@itfakultetet, jenkins,town-square', endpoint: 'http://mattermost.itfakultetet.no:8065/hooks/1t53s7bk4tdouywsm1bfww99na', message: "### OOOps! \n- Jenkins sier:  \nJob:  ${env.JOB_NAME}   \nByggnummer:  ${env.BUILD_NUMBER} :x:", text: '### Ny versjon av Jenkins-test feilet  :x:'
       }
 
       always {
