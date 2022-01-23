@@ -1,5 +1,4 @@
 pipeline {
-  
   agent any
 
   stages {
@@ -21,7 +20,7 @@ pipeline {
                  version: '0.0.1-SNAPSHOT'
       }
     }
-
+  }
     post {
       success {
         emailext body: "Dette er en mail fra Jenkins pipeline\nJenkins sier:  Jobb: ${env.JOB_NAME}\nByggnummer:  ${env.BUILD_NUMBER} gikk bra!", subject: 'Jenkins-test - Ny versjon bygget!', to: 'terje@itfakultetet.no'
@@ -37,5 +36,4 @@ pipeline {
       }
     }
 
-  }
 }
