@@ -11,7 +11,7 @@ pipeline {
     stage('Upload jar to Nexus') {
       steps {
         nexusArtifactUploader artifacts: [[artifactId: 'Jenkins-test', classifier: '', file: 'target/Jenkinstest-0.0.1-SNAPSHOT.jar', type: 'jar']],
-                 credentialsId: 'c9b3d9ca-d42d-4688-9f04-5d63007b1332',
+                 credentialsId: 'ba94238c-4b4c-440c-9e78-62de2ee9d890',
                  groupId: 'no.itfakultetet',
                  nexusUrl: 'itfakultetet.no:8081',
                  nexusVersion: 'nexus3',
