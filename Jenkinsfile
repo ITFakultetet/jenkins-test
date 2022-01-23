@@ -23,8 +23,10 @@ pipeline {
   }
     post {
       success {
+        steps {
         emailext body: "Dette er en mail fra Jenkins pipeline\nJenkins sier:  Jobb: ${env.JOB_NAME}\nByggnummer:  ${env.BUILD_NUMBER} gikk bra!", subject: 'Jenkins-test - Ny versjon bygget!', to: 'terje@itfakultetet.no'
         mattermostSend channel: '@itfakultetet, enkins,town-square', endpoint: 'http://mattermost.itfakultetet.no:8065/hooks/1t53s7bk4tdouywsm1bfww99na', message: "### Bare hyggelig! \n- Jenkins sier:  \nJob:  ${env.JOB_NAME}   \nByggnummer:  ${env.BUILD_NUMBER}  :tada:", text: '### Ny versjon av Jenkins-test bygget  :white_check_mark:'L
+        }
       }
 
       failure {
@@ -35,5 +37,4 @@ pipeline {
         archiveArtifacts artifacts: "jenkinstest-0.0.${env.BUILD_NUMBER}.tgz", fingerprint: true
       }
     }
-
 }
