@@ -1,10 +1,10 @@
-package no.itfakultetet.TrophoniusRestServer;
+package no.itfakultetet.jenkinstest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TrophoniusRestServerApplicationTests {
+class JenkinstestTests {
 
 	@Test
 	void contextLoads() {
