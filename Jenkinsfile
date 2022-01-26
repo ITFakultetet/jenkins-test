@@ -1,7 +1,9 @@
 pipeline {
+
   agent any
 
   stages {
+
     stage('Maven clean package') {
       steps {
         sh 'mvn clean package'
@@ -33,7 +35,7 @@ pipeline {
       }
 
       always {
-        archiveArtifacts artifacts: "target/Jenkinstest-0.0.1-SNAPSHOT.jar", fingerprint: true
+       archiveArtifacts artifacts: "target/Jenkinstest-0.0.1-SNAPSHOT.jar", fingerprint: true
       }
     }
 }
